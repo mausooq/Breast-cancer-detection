@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Detection Result</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #FFC0CB; /* Pink background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1 0 auto;
+            background-color: #FFF0F5; /* Light pink background */
+        }
+        header, footer {
+            background-color: #FF69B4; /* Hot pink for header and footer */
+            color: white;
+        }
+        .result-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.15);
+            border: 2px solid #FF69B4;
+        }
+        .result-title {
+            color: #FF1493; /* Deep pink color for the title */
+        }
+        .image-container {
+            border: 2px solid #FF69B4;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .back-btn {
+            background-color: #FF69B4;
+            border-color: #FF69B4;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #FF1493;
+            border-color: #FF1493;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header class="py-3">
+        <div class="container">
+            <h1 class="text-center">Breast Cancer Detection System</h1>
+        </div>
+    </header>
+
+    <div class="content container py-5">
+        <div class="result-container p-4 p-md-5">
+            <h2 class="result-title text-center mb-4">Detection Result</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="h5 text-center mb-3">Original Image</h3>
+                    <div class="image-container">
+                        <img src="{{ url_for('uploaded_file', filename=input_image) }}" alt="Input Image" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h5 text-center mb-3">Detected Image</h3>
+                    <div class="image-container">
+                        <img src="{{ url_for('output_file', filename=output_image) }}" alt="Detected Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="/" class="back-btn btn btn-lg">
+                    <i class="fas fa-arrow-left me-2"></i>Go Back
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-3 mt-auto">
+        <div class="container">
+            <p class="text-center mb-0">&copy; Abdul Mausooq</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
