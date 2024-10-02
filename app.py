@@ -13,7 +13,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 
 # Load the YOLOv8 model
-model = YOLO('yolov8n.pt')  # You can replace with another model
+model = YOLO('best.pt')  # You can replace with another model
 
 # Home route
 @app.route('/')
